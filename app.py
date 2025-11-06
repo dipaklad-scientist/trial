@@ -11,11 +11,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
-import zipfile
 
-with zipfile.ZipFile('USA_House_Price_Prediction_model.zip', 'r') as zip_ref:
-    zip_ref.extractall()
-model = joblib.load('USA_House_Price_Prediction_model.pkl')
 st.title('USA House Price Prediction Model')
 st.divider()
 st.write('Please enter House details in Numeric Format')
@@ -32,12 +28,12 @@ sqft_above=st.number_input('Select sqft_above',min_value=0,value=0)
 grade=st.number_input('Select grade',min_value=0,value=0)
 sqft_living=st.number_input('Select sqft_living',min_value=0,value=0)
 st.divider()
-x=[bedrooms,bathrooms,sqft_living,sqft_above,sqft_basement,lat,waterfront,view,grade,sqft_living15,floor]
-predictbutton=st.button('Predict')
-if predictbutton:
-  x_array=np.array(x)
-  prediction=model.predict(x_array)
-  st.write(f'Predicted House Price: ${prediction[0]:,.2f}')
-else:
-    st.write('Please click predict button after entering all values')
+#x=[bedrooms,bathrooms,sqft_living,sqft_above,sqft_basement,lat,waterfront,view,grade,sqft_living15,floor]
+#predictbutton=st.button('Predict')
+#if predictbutton:
+ # x_array=np.array(x)
+  #prediction=model.predict(x_array)
+  #st.write(f'Predicted House Price: ${prediction[0]:,.2f}')
+#else:
+    #st.write('Please click predict button after entering all values')
 
